@@ -1,4 +1,4 @@
-package com.project.dabang.domain;
+package com.project.dabang.domain.construction;
 
 import lombok.Getter;
 

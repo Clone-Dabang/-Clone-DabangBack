@@ -1,6 +1,6 @@
-package com.project.dabang.domain;
+package com.project.dabang.domain.trade;
 
-import com.project.dabang.domain.sale.Sale;
+import com.project.dabang.domain.trade.sale.Sale;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

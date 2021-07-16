@@ -1,4 +1,4 @@
-package com.project.dabang.domain.sale;
+package com.project.dabang.domain.trade.sale;
 
 import lombok.Getter;
 
@@ -13,4 +13,6 @@ public abstract class Sale {
     @Id @GeneratedValue
     @Column(name="sale_id")
     private Long id;
+
+
 }

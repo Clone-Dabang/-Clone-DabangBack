@@ -1,4 +1,4 @@
-package com.project.dabang.domain;
+package com.project.dabang.domain.construction;
 
 import lombok.Getter;
 
@@ -15,6 +15,13 @@ public class Construction {
 
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
+
+    private int buildingArea;
+
+    private int floor;
+
+    @Embedded
+    private DetailInfo detailInfo = DetailInfo.EMPTY;
 
     @Embedded
     private Address address;
