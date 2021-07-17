@@ -16,8 +16,6 @@ public class DetailInfo {
     private boolean hasbalcony;
     private boolean hasBuiltIn;
 
-//    private List<Appliance> appliances = new ArrayList<>();
-
     @Enumerated(EnumType.STRING)
     private InnerType innerType;
 }

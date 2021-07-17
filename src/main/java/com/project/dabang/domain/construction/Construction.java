@@ -1,12 +1,14 @@
 package com.project.dabang.domain.construction;
 
+import com.project.dabang.domain.Timestamped;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
-public class Construction {
+public class Construction extends Timestamped {
 
     @Id
     @GeneratedValue
@@ -21,8 +23,11 @@ public class Construction {
     private int floor;
 
     @Embedded
-    private DetailInfo detailInfo = DetailInfo.EMPTY;
+    private DetailInfo detailInfo;
 
     @Embedded
     private Address address;
+
+
+
 }
