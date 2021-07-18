@@ -1,7 +1,6 @@
 package com.project.dabang.domain.construction;
 
 import com.project.dabang.domain.Timestamped;
-import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
