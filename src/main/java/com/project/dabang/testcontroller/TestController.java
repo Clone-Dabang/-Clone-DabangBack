@@ -21,7 +21,9 @@ public class TestController {
     public void test(@RequestBody RawRequestDto rawRequestDto) throws JsonProcessingException {
 
         RequestJson requestJson = customJsonPassing.jasonPassingUsingGson(rawRequestDto);
-        System.out.println("count : "+ requestJson.count);
-        System.out.println("additionalInfo : "+ requestJson.additionalInfo);
+        RequestJson.AddressInfoDetail saveAddressDto = new RequestJson.AddressInfoDetail();
+
+        System.out.println("tradeInfo : "+ requestJson.getTradeInfoDetail());
+        System.out.println("roomtype : "+ requestJson.saleInfoDetail.getRoomType());
     }
 }
