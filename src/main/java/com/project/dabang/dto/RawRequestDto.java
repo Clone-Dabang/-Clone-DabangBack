@@ -3,12 +3,14 @@ package com.project.dabang.dto;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class RawRequestDto {
@@ -17,25 +19,34 @@ public class RawRequestDto {
     private AddressInfo addressInfo;
     private TradeInfo tradeInfo;
     private BasicInfo basicInfo;
-    private AddtionalInfo addtionalInfo;
-    private ApplianceInfo applianceInfo;
-    private DetailInfoDetail detailInfoDetail;
+    private AdditionalInfo additionalInfo;
+    private Appliance appliance;
+    private DetailInfo detailInfo;
     private int count;
 
 
-    @Getter
-    public class SaleInfo {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class SaleInfo {
         private String roomType;
     }
 
-    @Getter
-    public class AddressInfo {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class AddressInfo {
         private String road;
         private String original;
     }
 
-    @Getter
-    public class TradeInfo {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class TradeInfo {
         private int monthlyDeposit;
         private int yearlyDeposit;
         private int monthlyPay;
@@ -43,27 +54,36 @@ public class RawRequestDto {
         private boolean isYearly;
     }
 
-    @Getter
-    public class BasicInfo {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class BasicInfo {
         public int buildingArea;
         public int floor;
-        public LocalDateTime movingDate;
+        public String movingDate; // chore: Localdatetim -> String
     }
 
-    @Getter
-    public class AddtionalInfo {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class AdditionalInfo {
         public int managementFee;
         public boolean isParkingSpace;
         public boolean hasPet;
         public boolean hasElevator;
         public boolean hasBalcony;
         public boolean hasBuiltIn;
-        public boolean innerType;
+        public String innerType;
         public boolean loanPossibility;
     }
 
-    @Getter
-    public class ApplianceInfo {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class Appliance {
         public boolean hasInduction;
         public boolean hasMicrowave;
         public boolean hasAirConditioner;
@@ -79,16 +99,20 @@ public class RawRequestDto {
         public boolean hasDoorLock;
     }
 
-    @Getter
-    public class DetailInfoDetail {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class DetailInfo {
         public String title;
         public String contents;
     }
 
-    @Getter
-    public class ImageUpload {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    public static class ImageUpload {
         public List<String> url;
     }
-
-
 }
