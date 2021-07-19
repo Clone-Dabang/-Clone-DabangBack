@@ -1,5 +1,6 @@
 package com.project.dabang.domain;
 
+import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,10 +20,19 @@ public class Img extends Timestamped {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    private String imgUrl;
+    //== 연관관계 편의 메서드 ==//
+    public void setPost(Post post) {
+        this.post = post;
+        post.getImgs().add(this);
+    }
 
-//    public Img(Post post, RawRequestDto rawRequestDto) {
-//        this.post = post;
-//        this.imgUrl = rawRequestDto.;
-//    }
+    //== 생성 메서드 ==//
+    public static Img createImg(Post post){
+        Img img = new Img();
+        img.setPost(post);
+        return img;
+    }
+
+
+
 }
