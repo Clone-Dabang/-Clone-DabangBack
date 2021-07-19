@@ -2,6 +2,8 @@ package com.project.dabang.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.project.dabang.domain.construction.InnerType;
+import com.project.dabang.domain.construction.RoomType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -30,7 +32,7 @@ public class RawRequestDto {
     @AllArgsConstructor
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     public static class SaleInfo {
-        private String roomType;
+        private RoomType roomType;        // String to RoomType
     }
 
     @Data
@@ -75,7 +77,7 @@ public class RawRequestDto {
         public boolean hasElevator;
         public boolean hasBalcony;
         public boolean hasBuiltIn;
-        public String innerType;
+        public InnerType innerType;           // chore: String -> InnerType
         public boolean loanPossibility;
     }
 

@@ -5,11 +5,13 @@ import com.project.dabang.domain.trade.sale.Sale;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter // Setter 열어둔거 조치 필요
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class TradeSale extends Timestamped {
 
@@ -22,17 +24,19 @@ public class TradeSale extends Timestamped {
     @JoinColumn(name = "trade_id")
     private Trade trade;
 
-    @OneToOne(optional = false)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sale_id")
     private Sale sale;
 
-    public Sale getSale() {
-        return sale;
-    }
+//    public TradeSale(Trade trade, Sale sale) {
+//        this.trade = trade;
+//        this.sale = sale;
+//    }
 
-    public void setSale(Sale sale) {
-        this.sale = sale;
+    //==생성 메서드==//
+    public static TradeSale createTradeSale(Sale sale) {
+        TradeSale tradeSale = new TradeSale();
+        tradeSale.setSale(sale);
+        return tradeSale;
     }
-
 }
