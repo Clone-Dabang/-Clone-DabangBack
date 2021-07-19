@@ -1,6 +1,7 @@
 package com.project.dabang.domain.trade;
 
 import com.project.dabang.domain.Timestamped;
+import com.project.dabang.dto.RawRequestDto;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,28 +19,18 @@ public class Trade extends Timestamped {
 
     @Id
     @GeneratedValue
-    @Column(name = "construction_id")
+    @Column(name = "trade_id")
     private Long id;
 
-    private LocalDateTime movingDate;
+    private String movingDate; // Localdatetime -> String
 
     private int managementFee;
 
     private boolean loanPossibility;
 
-    //== 생성 메서드==//
-//    @Builder
-//    public static Trade createTrade(int managementFee,
-//                                    boolean loanPossibility,
-//                                    TradeSale... tradeSales) {
-//        Trade trade = new Trade();
-//        trade.
-//        trade.
-//    }
-
-    //== 편의 메서드 ==//
-//    public void addTradeSale(TradeSale tradeSale) {
-//        tradeSales.add(tradeSale);
-//        tradeSale.setOrder(this)
-//    }
+    public Trade(RawRequestDto rawRequestDto) {
+        this.movingDate = rawRequestDto.getBasicInfo().getMovingDate();
+        this.managementFee = rawRequestDto.getAdditionalInfo().getManagementFee();
+        this.loanPossibility = rawRequestDto.getAdditionalInfo().isLoanPossibility();
+    }
 }
