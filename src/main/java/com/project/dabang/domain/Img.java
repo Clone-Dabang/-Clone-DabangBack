@@ -1,13 +1,14 @@
 package com.project.dabang.domain;
 
-import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 public class Img extends Timestamped {
 
@@ -16,23 +17,23 @@ public class Img extends Timestamped {
     @Column(name = "img_id")
     private Long id;
 
-    @ManyToOne
+    private String img;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
 
-    //== 연관관계 편의 메서드 ==//
-    public void setPost(Post post) {
-        this.post = post;
-        post.getImgs().add(this);
+    public Img(String img) {
+        this.img = img;
     }
 
-    //== 생성 메서드 ==//
-    public static Img createImg(Post post){
-        Img img = new Img();
-        img.setPost(post);
-        return img;
-    }
-
-
-
+    //    public static String createImg(RawRequestDto rawRequestDto) {
+//        Img img = new Img();
+//        List<String> urls = rawRequestDto.getImageUpload().getUrl();
+//        for (String url : urls) {
+//            img.add(url);
+//        }
+//        return img.getImg();
+//    }
 }
+

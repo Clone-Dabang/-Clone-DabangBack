@@ -2,6 +2,7 @@ package com.project.dabang.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.project.dabang.domain.Img;
 import com.project.dabang.domain.construction.InnerType;
 import com.project.dabang.domain.construction.RoomType;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @NoArgsConstructor
@@ -24,6 +27,7 @@ public class RawRequestDto {
     private AdditionalInfo additionalInfo;
     private Appliance appliance;
     private DetailInfo detailInfo;
+    private ImageUpload imageUpload;
     private int count;
 
 
@@ -115,6 +119,6 @@ public class RawRequestDto {
     @AllArgsConstructor
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     public static class ImageUpload {
-        public List<String> url;
+        public List<String> url = new ArrayList<>();
     }
 }
