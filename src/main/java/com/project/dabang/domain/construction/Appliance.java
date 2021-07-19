@@ -1,7 +1,10 @@
 package com.project.dabang.domain.construction;
 
 import com.project.dabang.domain.Timestamped;
+import com.project.dabang.dto.RawRequestDto;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +13,7 @@ import javax.persistence.Id;
 
 @Getter
 @Entity
+@NoArgsConstructor
 public class Appliance extends Timestamped {
 
     @Id
@@ -31,4 +35,19 @@ public class Appliance extends Timestamped {
     private boolean hasRefrigerator;
     private boolean hasDoorLock;
 
+    public Appliance(RawRequestDto rawRequestDto) {
+        this.hasInduction = rawRequestDto.getAppliance().isHasInduction();
+        this.hasMicrowave = rawRequestDto.getAppliance().isHasMicrowave();
+        this.hasAirConditioner = rawRequestDto.getAppliance().isHasAirConditioner();
+        this.hasWasher = rawRequestDto.getAppliance().isHasWasher();
+        this.hasTv = rawRequestDto.getAppliance().isHasTv();
+        this.hasCloset = rawRequestDto.getAppliance().isHasCloset();
+        this.hasBed = rawRequestDto.getAppliance().isHasBed();
+        this.hasDesk = rawRequestDto.getAppliance().isHasDesk();
+        this.hasShoeCloset = rawRequestDto.getAppliance().isHasShoeCloset();
+        this.hasBidet = rawRequestDto.getAppliance().isHasBidet();
+        this.hasGasRange = rawRequestDto.getAppliance().isHasGasRange();
+        this.hasRefrigerator = rawRequestDto.getAppliance().isHasRefrigerator();
+        this.hasDoorLock = rawRequestDto.getAppliance().isHasDoorLock();
+    }
 }

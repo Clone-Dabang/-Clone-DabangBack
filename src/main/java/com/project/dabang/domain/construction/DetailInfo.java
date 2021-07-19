@@ -1,6 +1,8 @@
 package com.project.dabang.domain.construction;
 
+import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.List;
 
 @Embeddable
 @Getter
+@NoArgsConstructor
 public class DetailInfo {
 
     private boolean isParkingSpace;
@@ -18,4 +21,13 @@ public class DetailInfo {
 
     @Enumerated(EnumType.STRING)
     private InnerType innerType;
+
+    public DetailInfo(RawRequestDto rawRequestDto) {
+        this.isParkingSpace = rawRequestDto.getAdditionalInfo().isParkingSpace();
+        this.hasPet = rawRequestDto.getAdditionalInfo().isHasPet();
+        this.hasElevator = rawRequestDto.getAdditionalInfo().isHasElevator();
+        this.hasbalcony = rawRequestDto.getAdditionalInfo().isHasBalcony();
+        this.hasBuiltIn = rawRequestDto.getAdditionalInfo().isHasBuiltIn();
+        this.innerType = rawRequestDto.getAdditionalInfo().getInnerType();
+    }
 }
