@@ -32,13 +32,12 @@ public class Post extends Timestamped {
     }
 
     public static Post createPost(RawRequestDto rawRequestDto) {
-        Post post = new Post();
+        Post post = new Post(rawRequestDto);
         List<String> urls = rawRequestDto.getImageUpload().getUrl();
         for (String url : urls) {
             Img img = new Img(url);
             post.imgs.add(img);
         }
         return post;
-
     }
 }
