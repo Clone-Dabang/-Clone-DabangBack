@@ -1,5 +1,7 @@
 package com.project.dabang.domain.trade;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.project.dabang.domain.Timestamped;
 import com.project.dabang.domain.trade.sale.Sale;
 import lombok.AccessLevel;
@@ -20,6 +22,7 @@ public class TradeSale extends Timestamped {
     @Column(name = "trade_sale_id")
     private Long id;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trade_id")
     private Trade trade;

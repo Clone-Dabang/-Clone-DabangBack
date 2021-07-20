@@ -4,7 +4,9 @@ import com.project.dabang.domain.Post;
 import com.project.dabang.domain.construction.Appliance;
 import com.project.dabang.domain.construction.Construction;
 import com.project.dabang.domain.trade.Trade;
+import lombok.Getter;
 
+@Getter
 public class PostDetailResponseDto {
     private Post post;
     private Trade trade;

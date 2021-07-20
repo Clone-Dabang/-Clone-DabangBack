@@ -1,5 +1,6 @@
 package com.project.dabang.service;
 
+import com.project.dabang.domain.Img;
 import com.project.dabang.domain.Post;
 import com.project.dabang.domain.construction.Address;
 import com.project.dabang.domain.construction.Appliance;
@@ -29,7 +30,7 @@ public class RawService {
 
     public void register(@RequestBody RawRequestDto rawRequestDto) {
 
-        // 포스트 생성
+        // 이미지, 포스트 생성
         Post post = Post.createPost(rawRequestDto);
         postRepository.save(post);
 
