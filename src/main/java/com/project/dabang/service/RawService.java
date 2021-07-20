@@ -7,10 +7,12 @@ import com.project.dabang.domain.construction.Appliance;
 import com.project.dabang.domain.construction.Construction;
 import com.project.dabang.domain.construction.DetailInfo;
 import com.project.dabang.domain.trade.Trade;
+import com.project.dabang.domain.trade.TradeSale;
 import com.project.dabang.domain.trade.sale.Monthly;
 import com.project.dabang.domain.trade.sale.Yearly;
 import com.project.dabang.dto.RawRequestDto;
 import com.project.dabang.repository.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,31 +21,15 @@ import java.util.List;
 
 
 @Service
+@RequiredArgsConstructor
 public class RawService {
     private final ApplianceRepository applianceRepository;
     private final ConstructionRepository constructionRepository;
-    private final ImgRepository imgRepository;
     private final MonthlyRepository monthlyRepository;
     private final PostRepository postRepository;
     private final TradeRepository tradeRepository;
     private final YearlyRepository yearlyRepository;
 
-    @Autowired
-    public RawService(ApplianceRepository applianceRepository,
-                        ConstructionRepository constructionRepository,
-                        ImgRepository imgRepository,
-                        MonthlyRepository monthlyRepository,
-                        PostRepository postRepository,
-                        TradeRepository tradeRepository,
-                        YearlyRepository yearlyRepository) {
-        this.applianceRepository = applianceRepository;
-        this.constructionRepository = constructionRepository;
-        this.monthlyRepository = monthlyRepository;
-        this.yearlyRepository = yearlyRepository;
-        this.tradeRepository = tradeRepository;
-        this.postRepository = postRepository;
-        this.imgRepository = imgRepository;
-    }
     public void register(@RequestBody RawRequestDto rawRequestDto) {
         Appliance appliance = new Appliance(rawRequestDto);
         applianceRepository.save(appliance);
@@ -57,14 +43,12 @@ public class RawService {
         monthlyRepository.save(monthly);
         Yearly yearly = new Yearly(rawRequestDto);
         yearlyRepository.save(yearly);
-        Trade trade = new Trade(rawRequestDto);
+        TradeSale mothlyTradeSale = TradeSale.createTradeSale(monthly);
+        TradeSale yearlyTradeSale = TradeSale.createTradeSale(yearly);
+        Trade trade = Trade.createTrade(rawRequestDto,mothlyTradeSale,yearlyTradeSale);
         tradeRepository.save(trade);
-//        Post post = Post.createPost(rawRequestDto);
-////        System.out.println(post);
-//        Post post = new Post(rawRequestDto);
-//        postRepository.save(post);
-//        List<Img> img = new Img(rawRequestDto.getImageUpload().getUrl());
-
+        Post post = Post.createPost(rawRequestDto);
+        postRepository.save(post);
     }
 
 }

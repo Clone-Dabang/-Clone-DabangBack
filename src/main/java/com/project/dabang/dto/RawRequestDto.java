@@ -26,7 +26,7 @@ public class RawRequestDto {
     private Appliance appliance;
     private DetailInfo detailInfo;
     private ImageUpload imageUpload;
-    private int count;
+
 
 
     @Data
@@ -44,6 +44,8 @@ public class RawRequestDto {
     public static class AddressInfo {
         private String road;
         private String original;
+        private String latitude;
+        private String longitude;
     }
 
     @Data
