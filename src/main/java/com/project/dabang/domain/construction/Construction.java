@@ -4,11 +4,13 @@ import com.project.dabang.domain.Timestamped;
 import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 public class Construction extends Timestamped {
 
