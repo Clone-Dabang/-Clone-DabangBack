@@ -19,6 +19,9 @@ public class Construction extends Timestamped {
     @Column(name = "construction_id")
     private Long id;
 
+    @Column(nullable = false)
+    private Long postId;
+
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
@@ -33,7 +36,8 @@ public class Construction extends Timestamped {
     private Address address;
 
 
-    public Construction(RawRequestDto rawRequestDto) {
+    public Construction(RawRequestDto rawRequestDto, Long keyValue) {
+        this.postId = keyValue;
         this.roomType = rawRequestDto.getSaleInfo().getRoomType();
         this.buildingArea = rawRequestDto.getBasicInfo().getBuildingArea();
         this.floor = rawRequestDto.getBasicInfo().getFloor();

@@ -2,7 +2,6 @@ package com.project.dabang.domain.construction;
 
 import com.project.dabang.domain.Timestamped;
 import com.project.dabang.dto.RawRequestDto;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +20,9 @@ public class Appliance extends Timestamped {
     @Column(name="appliance_id")
     private Long id;
 
+    @Column(nullable = false)
+    private Long postId;
+
     private boolean hasInduction;
     private boolean hasMicrowave;
     private boolean hasAirConditioner;
@@ -35,7 +37,8 @@ public class Appliance extends Timestamped {
     private boolean hasRefrigerator;
     private boolean hasDoorLock;
 
-    public Appliance(RawRequestDto rawRequestDto) {
+    public Appliance(RawRequestDto rawRequestDto, Long keyValue) {
+        this.postId = keyValue;
         this.hasInduction = rawRequestDto.getAppliance().isHasInduction();
         this.hasMicrowave = rawRequestDto.getAppliance().isHasMicrowave();
         this.hasAirConditioner = rawRequestDto.getAppliance().isHasAirConditioner();

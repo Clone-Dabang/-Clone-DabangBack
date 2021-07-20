@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RawController {
     private final RawService rawService;
 
-    @PostMapping("/api/roomposts") //게시물 작성
+    @PostMapping("/api/posts") //게시물 작성
     public void createPost(@RequestBody RawRequestDto rawRequestDto) {
         rawService.register(rawRequestDto);
 

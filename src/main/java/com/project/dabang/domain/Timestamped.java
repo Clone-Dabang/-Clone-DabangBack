@@ -16,9 +16,6 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class Timestamped {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long commonId;
-
     @CreatedDate
     private LocalDateTime createdAt;
 
