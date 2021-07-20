@@ -27,8 +27,6 @@ public class RawRequestDto {
     private DetailInfo detailInfo;
     private ImageUpload imageUpload;
 
-
-
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

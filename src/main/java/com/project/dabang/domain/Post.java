@@ -3,7 +3,6 @@ package com.project.dabang.domain;
 import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -39,5 +38,10 @@ public class Post extends Timestamped {
             post.imgs.add(img);
         }
         return post;
+    }
+
+    // 대표키값 설정
+    public Long distinctId() {
+        return id;
     }
 }

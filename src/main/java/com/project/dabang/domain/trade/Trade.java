@@ -22,6 +22,9 @@ public class Trade extends Timestamped {
     @Column(name = "trade_id")
     private Long id;
 
+    @Column(nullable = false)
+    private Long postId;
+
     @OneToMany(mappedBy = "trade", cascade = CascadeType.ALL)
     private List<TradeSale> tradeSales = new ArrayList<>();
 
@@ -32,7 +35,8 @@ public class Trade extends Timestamped {
     private boolean loanPossibility;
 
 
-    public Trade(RawRequestDto rawRequestDto) {
+    public Trade(RawRequestDto rawRequestDto, Long keyValue) {
+        this.postId = keyValue;
         this.movingDate = rawRequestDto.getBasicInfo().getMovingDate();
         this.managementFee = rawRequestDto.getAdditionalInfo().getManagementFee();
         this.loanPossibility = rawRequestDto.getAdditionalInfo().isLoanPossibility();
@@ -45,9 +49,9 @@ public class Trade extends Timestamped {
     }
 
     //== 생성 메서드 ==//
-    public static Trade createTrade(RawRequestDto rawRequestDto,
+    public static Trade createTrade(RawRequestDto rawRequestDto, Long keyValue,
                                     TradeSale... tradeSales) {
-        Trade trade = new Trade(rawRequestDto);
+        Trade trade = new Trade(rawRequestDto,keyValue);
         for (TradeSale tradeSale : tradeSales) {
             trade.addTradeSale(tradeSale);
         }
