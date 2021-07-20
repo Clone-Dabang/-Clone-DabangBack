@@ -1,5 +1,6 @@
 package com.project.dabang.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +20,8 @@ public class Img extends Timestamped {
 
     private String img;
 
+
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
@@ -26,14 +29,5 @@ public class Img extends Timestamped {
     public Img(String img) {
         this.img = img;
     }
-
-    //    public static String createImg(RawRequestDto rawRequestDto) {
-//        Img img = new Img();
-//        List<String> urls = rawRequestDto.getImageUpload().getUrl();
-//        for (String url : urls) {
-//            img.add(url);
-//        }
-//        return img.getImg();
-//    }
 }
 

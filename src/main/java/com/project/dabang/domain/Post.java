@@ -1,5 +1,7 @@
 package com.project.dabang.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,7 @@ public class Post extends Timestamped {
 
     private String contents;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "post")
     private List<Img> imgs = new ArrayList<>();
 
@@ -38,10 +41,5 @@ public class Post extends Timestamped {
             post.imgs.add(img);
         }
         return post;
-    }
-
-    // 대표키값 설정
-    public Long distinctId() {
-        return id;
     }
 }

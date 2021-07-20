@@ -1,5 +1,6 @@
 package com.project.dabang.domain.trade;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.project.dabang.domain.Timestamped;
 import com.project.dabang.dto.RawRequestDto;
 import lombok.AccessLevel;
@@ -25,6 +26,7 @@ public class Trade extends Timestamped {
     @Column(nullable = false)
     private Long postId;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "trade", cascade = CascadeType.ALL)
     private List<TradeSale> tradeSales = new ArrayList<>();
 

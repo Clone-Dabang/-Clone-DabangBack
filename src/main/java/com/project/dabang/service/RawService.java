@@ -29,7 +29,7 @@ public class RawService {
 
     public void register(@RequestBody RawRequestDto rawRequestDto) {
 
-        // 포스트 생성
+        // 이미지, 포스트 생성
         Post post = Post.createPost(rawRequestDto);
         postRepository.save(post);
 
@@ -55,7 +55,7 @@ public class RawService {
 
         TradeSale mothlyTradeSale = TradeSale.createTradeSale(monthly);
         TradeSale yearlyTradeSale = TradeSale.createTradeSale(yearly);
-        Trade trade = Trade.createTrade(rawRequestDto,keyValue, mothlyTradeSale, yearlyTradeSale);
+        Trade trade = Trade.createTrade(rawRequestDto, keyValue, mothlyTradeSale, yearlyTradeSale);
         tradeRepository.save(trade);
     }
 
