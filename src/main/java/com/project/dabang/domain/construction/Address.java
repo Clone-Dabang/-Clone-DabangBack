@@ -14,6 +14,8 @@ public class Address {
 
     private String road;
     private String original;
+    private String latitude;
+    private String longitude;
 
 //    protected Address() {
 //
@@ -22,6 +24,9 @@ public class Address {
     public Address(RawRequestDto rawRequestDto) {
         this.road = rawRequestDto.getAddressInfo().getRoad();
         this.original = rawRequestDto.getAddressInfo().getOriginal();
+        this.latitude = rawRequestDto.getAddressInfo().getLatitude();
+        this.longitude = rawRequestDto.getAddressInfo().getLongitude();
+
     }
 }
 
