@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApplianceRepository extends JpaRepository<Appliance,Long> {
+    Appliance findByPostId(Long postId);
 }

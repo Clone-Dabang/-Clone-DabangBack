@@ -1,6 +1,6 @@
 package com.project.dabang.repository;
 
-import com.project.dabang.domain.trade.Trade;
+import com.project.dabang.domain.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,7 @@ public class PostDetailRepository {
 
     private final EntityManager em;
 
-    public Trade findOne(Long id) {
-        return em.find(Trade.class, id);
+    public Post findOne(Long id) {
+        return em.find(Post.class, id);
     }
 }
