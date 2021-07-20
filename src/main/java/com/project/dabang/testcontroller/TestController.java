@@ -21,12 +21,6 @@ public class TestController {
 
     @PostMapping("/api/test")
     public void test(@RequestBody RawRequestDto rawRequestDto) {
-        Member member = new Member(rawRequestDto);
-        String title = member.getTitle();
-        String contents = member.getContents();
-        System.out.println("title : " + title);
-        System.out.println("contents : " + contents);
-
         // Address
         Address address = new Address(rawRequestDto);
         String road = address.getRoad();

@@ -2,7 +2,6 @@ package com.project.dabang.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.project.dabang.domain.Img;
 import com.project.dabang.domain.construction.InnerType;
 import com.project.dabang.domain.construction.RoomType;
 import lombok.AllArgsConstructor;
@@ -12,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Getter
 @NoArgsConstructor
