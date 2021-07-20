@@ -1,5 +1,6 @@
 package com.project.dabang.service;
 
+import com.project.dabang.domain.Img;
 import com.project.dabang.domain.Post;
 import com.project.dabang.domain.construction.Construction;
 import com.project.dabang.domain.construction.RoomType;
@@ -22,6 +23,7 @@ public class MainService {
     private final PostRepository postRepository;
     private final MonthlyRepository monthlyRepository;
     private final YearlyRepository yearlyRepository;
+    private final ImgRepository imgRepository;
 
 
     public MainResponseDto createMain(Long id) {
@@ -43,7 +45,11 @@ public class MainService {
         Post post = postRepository.getById(id);
         String title = post.getTitle();
 
-        return new MainResponseDto(roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor);
+        for (Img s : imgRepository.findAllByPostId(id)) {
+            post.addImgList(s);
+        }
+
+        return new MainResponseDto(roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor, post.getImgList());
 
     }
 }

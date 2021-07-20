@@ -3,6 +3,7 @@ package com.project.dabang.domain;
 import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,33 +12,28 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor
+@Setter
 public class Post extends Timestamped {
 
     @Id
     @GeneratedValue
     @Column(name = "post_id")
     private Long id;
-
+    @Column
     private String title;
-
+    @Column
     private String contents;
 
-    @OneToMany(mappedBy = "post")
-    private List<Img> imgs = new ArrayList<>();
+    @Transient
+    private final List<Img> imgList = new ArrayList<>();
+
+    public void addImgList(Img img) {
+        imgList.add(img);
+    }
 
     public Post(RawRequestDto rawRequestDto) {
         this.title = rawRequestDto.getDetailInfo().getTitle();
         this.contents = rawRequestDto.getDetailInfo().getContents();
-    }
-
-    public static Post createPost(RawRequestDto rawRequestDto) {
-        Post post = new Post(rawRequestDto);
-        List<String> urls = rawRequestDto.getImageUpload().getUrl();
-        for (String url : urls) {
-            Img img = new Img(url);
-            post.imgs.add(img);
-        }
-        return post;
     }
 
     // 대표키값 설정

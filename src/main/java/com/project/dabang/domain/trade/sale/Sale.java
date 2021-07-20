@@ -2,7 +2,6 @@ package com.project.dabang.domain.trade.sale;
 
 import com.project.dabang.domain.Timestamped;
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 

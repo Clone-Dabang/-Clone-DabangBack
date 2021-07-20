@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Getter
@@ -16,24 +19,16 @@ public class Img extends Timestamped {
     @GeneratedValue
     @Column(name = "img_id")
     private Long id;
-
+    @Column
     private String img;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @Column
+    private Long postId;
 
-    public Img(String img) {
+    public Img(String img, Long postId) {
         this.img = img;
+        this.postId = postId;
     }
 
-    //    public static String createImg(RawRequestDto rawRequestDto) {
-//        Img img = new Img();
-//        List<String> urls = rawRequestDto.getImageUpload().getUrl();
-//        for (String url : urls) {
-//            img.add(url);
-//        }
-//        return img.getImg();
-//    }
 }
 

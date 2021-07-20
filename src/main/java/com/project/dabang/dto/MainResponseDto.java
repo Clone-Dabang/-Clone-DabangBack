@@ -1,8 +1,11 @@
 package com.project.dabang.dto;
 
+import com.project.dabang.domain.Img;
 import com.project.dabang.domain.construction.RoomType;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -15,8 +18,9 @@ public class MainResponseDto {
     private int managementFee;
     private int buildingArea;
     private int floor;
+    private List<Img> imgList;
 
-    public MainResponseDto(RoomType roomType, String title, int monthlyDeposit, int pay, int yearlyDeposit, int managementFee, int buildingArea, int floor) {
+    public MainResponseDto(RoomType roomType, String title, int monthlyDeposit, int pay, int yearlyDeposit, int managementFee, int buildingArea, int floor, List<Img> imgList) {
         this.roomType = roomType;
         this.title = title;
         this.monthlyDeposit = monthlyDeposit;
@@ -25,5 +29,6 @@ public class MainResponseDto {
         this.managementFee = managementFee;
         this.buildingArea = buildingArea;
         this.floor = floor;
+        this.imgList = imgList;
     }
 }
