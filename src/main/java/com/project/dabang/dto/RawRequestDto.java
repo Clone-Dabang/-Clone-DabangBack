@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,6 +25,7 @@ public class RawRequestDto {
     private AdditionalInfo additionalInfo;
     private Appliance appliance;
     private DetailInfo detailInfo;
+    private ImageUpload imageUpload;
     private int count;
 
 
@@ -115,6 +117,6 @@ public class RawRequestDto {
     @AllArgsConstructor
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     public static class ImageUpload {
-        public List<String> url;
+        public List<String> url = new ArrayList<>();
     }
 }

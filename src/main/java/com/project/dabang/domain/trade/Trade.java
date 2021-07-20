@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -30,11 +31,12 @@ public class Trade extends Timestamped {
 
     private boolean loanPossibility;
 
-//    public Trade(RawRequestDto rawRequestDto) {
-//        this.movingDate = rawRequestDto.getBasicInfo().getMovingDate();
-//        this.managementFee = rawRequestDto.getAdditionalInfo().getManagementFee();
-//        this.loanPossibility = rawRequestDto.getAdditionalInfo().isLoanPossibility();
-//    }
+
+    public Trade(RawRequestDto rawRequestDto) {
+        this.movingDate = rawRequestDto.getBasicInfo().getMovingDate();
+        this.managementFee = rawRequestDto.getAdditionalInfo().getManagementFee();
+        this.loanPossibility = rawRequestDto.getAdditionalInfo().isLoanPossibility();
+    }
 
     //== 편의 메서드 ==//
     public void addTradeSale(TradeSale tradeSale) {
@@ -43,8 +45,9 @@ public class Trade extends Timestamped {
     }
 
     //== 생성 메서드 ==//
-    public static Trade createTrade(TradeSale... tradeSales) {
-        Trade trade = new Trade();
+    public static Trade createTrade(RawRequestDto rawRequestDto,
+                                    TradeSale... tradeSales) {
+        Trade trade = new Trade(rawRequestDto);
         for (TradeSale tradeSale : tradeSales) {
             trade.addTradeSale(tradeSale);
         }
