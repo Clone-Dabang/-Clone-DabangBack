@@ -26,6 +26,15 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // 로그 출력해주는 외부 라이브러리
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
+    // 들어오는 값에 대한 유효성 검증
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //hibernate5Module 연관관계 조회하려구...
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
 }
 
 test {
