@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class DetailResponseDto {
 
+    private Long postId;
     private RoomType roomType;
-
     private String road;
     private String original;
     private String latitude;
@@ -55,6 +55,7 @@ public class DetailResponseDto {
     public List<String> url;
 
     public DetailResponseDto(DetailBeforeDto detailBeforeDto) {
+        this.postId = detailBeforeDto.getPost().getId();
         this.roomType = detailBeforeDto.getConstruction().getRoomType();
 
         this.road = detailBeforeDto.getConstruction().getAddress().getRoad();
