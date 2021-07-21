@@ -10,13 +10,12 @@ import com.project.dabang.domain.trade.sale.Monthly;
 import com.project.dabang.domain.trade.sale.Yearly;
 import com.project.dabang.dto.MainResponseDto;
 import com.project.dabang.repository.*;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 @RequiredArgsConstructor
 @Service
 public class MainService {
@@ -46,11 +45,25 @@ public class MainService {
         int yearlyDeposit = yearly.getDeposit();
         Post post = postRepository.getById(id);
         String title = post.getTitle();
-        for (Img s : imgRepository.findAllByPostId(id)) {
-            post.addImgList(s);
+        List<String> url = new ArrayList<>();
+        for (Img imgObject : imgRepository.findAllByPostId(id)) {
+            post.addImgList(imgObject);
+        }
+        for (Img img : imgRepository.findAllByPostId(id)) {
+            url.add(img.getImg());
         }
 
-        return new MainResponseDto(id,roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor, post.getImgList());
+        return new MainResponseDto(id, roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor, url);
 
+    }
+
+    public List<MainResponseDto> getMain() {
+
+        List<MainResponseDto> list = new ArrayList<>();
+        for (Post post : postRepository.findAll()) {
+            MainResponseDto main = createMain(post.getId());
+            list.add(main);
+        }
+        return list;
     }
 }
