@@ -1,6 +1,5 @@
 package com.project.dabang.domain.trade.sale;
 
-import com.project.dabang.domain.Timestamped;
 import com.project.dabang.dto.RawRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Y")
 @NoArgsConstructor
 @Getter
-public class Yearly extends Sale{
+public class Yearly extends Sale {
 
     private int deposit;
 

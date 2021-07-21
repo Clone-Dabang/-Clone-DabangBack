@@ -1,11 +1,13 @@
 package com.project.dabang.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Getter
@@ -17,17 +19,16 @@ public class Img extends Timestamped {
     @GeneratedValue
     @Column(name = "img_id")
     private Long id;
-
+    @Column
     private String img;
 
+    @Column
+    private Long postId;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    private Post post;
-
-    public Img(String img) {
+    public Img(String img, Long postId) {
         this.img = img;
+        this.postId = postId;
     }
+
 }
 

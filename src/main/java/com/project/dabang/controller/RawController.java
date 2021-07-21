@@ -19,9 +19,4 @@ public class RawController {
 
     }
 
-//    @GetMapping("/api/post/{id}")
-//    public int getPost (@PathVariable Long id){
-//    }
-
-
 }

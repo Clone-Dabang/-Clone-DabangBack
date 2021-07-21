@@ -17,7 +17,7 @@ public class Appliance extends Timestamped {
 
     @Id
     @GeneratedValue
-    @Column(name="appliance_id")
+    @Column(name = "appliance_id")
     private Long id;
 
     @Column(nullable = false)

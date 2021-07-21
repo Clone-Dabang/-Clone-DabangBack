@@ -1,5 +1,6 @@
 package com.project.dabang.service;
 
+import com.project.dabang.domain.Img;
 import com.project.dabang.domain.Post;
 import com.project.dabang.domain.construction.Construction;
 import com.project.dabang.domain.construction.RoomType;
@@ -13,6 +14,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Getter
 @RequiredArgsConstructor
 @Service
@@ -22,6 +25,7 @@ public class MainService {
     private final PostRepository postRepository;
     private final MonthlyRepository monthlyRepository;
     private final YearlyRepository yearlyRepository;
+    private final ImgRepository imgRepository;
 
 
     public MainResponseDto createMain(Long id) {
@@ -42,8 +46,11 @@ public class MainService {
         int yearlyDeposit = yearly.getDeposit();
         Post post = postRepository.getById(id);
         String title = post.getTitle();
+        for (Img s : imgRepository.findAllByPostId(id)) {
+            post.addImgList(s);
+        }
 
-        return new MainResponseDto(roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor);
+        return new MainResponseDto(id,roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor, post.getImgList());
 
     }
 }

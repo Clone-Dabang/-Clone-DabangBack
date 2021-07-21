@@ -1,5 +1,6 @@
 package com.project.dabang.service;
 
+import com.project.dabang.domain.Img;
 import com.project.dabang.domain.Post;
 import com.project.dabang.domain.construction.Address;
 import com.project.dabang.domain.construction.Appliance;
@@ -15,6 +16,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -26,15 +30,21 @@ public class RawService {
     private final PostRepository postRepository;
     private final TradeRepository tradeRepository;
     private final YearlyRepository yearlyRepository;
+    private final ImgRepository imgRepository;
 
     public void register(@RequestBody RawRequestDto rawRequestDto) {
 
-        // 이미지, 포스트 생성
-        Post post = Post.createPost(rawRequestDto);
-        postRepository.save(post);
+        // 포스트 생성
 
+        Post post = new Post(rawRequestDto);
+        postRepository.save(post);
         // 대표 키값 생성
         Long keyValue = post.getId();
+        List<String> images = new ArrayList<>(rawRequestDto.getImageUpload().getUrl());
+        for (String image : images) {
+            Img img = new Img(image, keyValue);
+            imgRepository.save(img);
+        }
 
 
         Appliance appliance = new Appliance(rawRequestDto, keyValue);
@@ -57,6 +67,8 @@ public class RawService {
         TradeSale yearlyTradeSale = TradeSale.createTradeSale(yearly);
         Trade trade = Trade.createTrade(rawRequestDto, keyValue, mothlyTradeSale, yearlyTradeSale);
         tradeRepository.save(trade);
+
+
     }
 
 }
