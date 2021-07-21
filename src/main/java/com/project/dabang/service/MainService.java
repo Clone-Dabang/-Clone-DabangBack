@@ -14,7 +14,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Service
@@ -57,13 +59,14 @@ public class MainService {
 
     }
 
-    public List<MainResponseDto> getMain() {
-
+    public Map<String,List<MainResponseDto>> getMain() {
+        Map<String,List<MainResponseDto>> listMap= new HashMap<>();
         List<MainResponseDto> list = new ArrayList<>();
         for (Post post : postRepository.findAll()) {
             MainResponseDto main = createMain(post.getId());
             list.add(main);
         }
-        return list;
+        listMap.put("shortInfo",list);
+        return listMap;
     }
 }
