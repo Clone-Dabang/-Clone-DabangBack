@@ -19,9 +19,11 @@ public class Post extends Timestamped {
     @GeneratedValue
     @Column(name = "post_id")
     private Long id;
-    @Column
+
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String title;
-    @Column
+
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String contents;
 
     @Transient
