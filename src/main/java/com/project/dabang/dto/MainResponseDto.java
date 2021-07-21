@@ -1,13 +1,16 @@
 package com.project.dabang.dto;
 
-import com.project.dabang.domain.Img;
+import com.project.dabang.domain.Post;
+import com.project.dabang.domain.construction.Construction;
 import com.project.dabang.domain.construction.RoomType;
+import com.project.dabang.domain.trade.Trade;
+import com.project.dabang.domain.trade.sale.Monthly;
+import com.project.dabang.domain.trade.sale.Yearly;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 
-@Setter
+
 @Getter
 public class MainResponseDto {
     private Long postId;
@@ -21,16 +24,20 @@ public class MainResponseDto {
     private int floor;
     private List<String> url;
 
-    public MainResponseDto(Long postId, RoomType roomType, String title, int monthlyDeposit, int pay, int yearlyDeposit, int managementFee, int buildingArea, int floor, List<String> url) {
+    public MainResponseDto(Long postId,
+                           Construction construction,
+                           Trade trade, Post post,
+                           Monthly monthly, Yearly yearly,
+                           List<String> url) {
         this.postId = postId;
-        this.roomType = roomType;
-        this.title = title;
-        this.monthlyDeposit = monthlyDeposit;
-        this.pay = pay;
-        this.yearlyDeposit = yearlyDeposit;
-        this.managementFee = managementFee;
-        this.buildingArea = buildingArea;
-        this.floor = floor;
+        this.roomType = construction.getRoomType();
+        this.title = post.getTitle();
+        this.monthlyDeposit = monthly.getDeposit();
+        this.pay = monthly.getPay();
+        this.yearlyDeposit = yearly.getDeposit();
+        this.managementFee = trade.getManagementFee();
+        this.buildingArea = construction.getBuildingArea();
+        this.floor = construction.getFloor();
         this.url = url;
     }
 }

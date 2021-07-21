@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
-public class GetApiController {
+public class MainApiController {
     private final MainService mainService;
 
     @GetMapping("/api/posts")
