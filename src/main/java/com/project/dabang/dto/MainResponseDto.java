@@ -19,9 +19,9 @@ public class MainResponseDto {
     private int managementFee;
     private int buildingArea;
     private int floor;
-    private List<Img> imgList;
+    private List<String> url;
 
-    public MainResponseDto(Long postId, RoomType roomType, String title, int monthlyDeposit, int pay, int yearlyDeposit, int managementFee, int buildingArea, int floor, List<Img> imgList) {
+    public MainResponseDto(Long postId, RoomType roomType, String title, int monthlyDeposit, int pay, int yearlyDeposit, int managementFee, int buildingArea, int floor, List<String> url) {
         this.postId = postId;
         this.roomType = roomType;
         this.title = title;
@@ -31,6 +31,6 @@ public class MainResponseDto {
         this.managementFee = managementFee;
         this.buildingArea = buildingArea;
         this.floor = floor;
-        this.imgList = imgList;
+        this.url = url;
     }
 }

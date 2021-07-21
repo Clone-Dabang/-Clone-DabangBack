@@ -84,10 +84,10 @@ public class PostService {
         detailAfterDto.getDetailInfo().setTitle(detailBeforeDto.getPost().getTitle());
         detailAfterDto.getDetailInfo().setTitle(detailBeforeDto.getPost().getContents());
 
-        detailAfterDto.getImageUpload().setUrl(detailBeforeDto.getPost().getImgs()
-                .stream()
-                .map(Img -> new String())
-                .collect(Collectors.toList()));
+//        detailAfterDto.getImageUpload().setUrl(detailBeforeDto.getPost().getImgs()
+//                .stream()
+//                .map(Img -> new String())
+//                .collect(Collectors.toList()));
         return detailAfterDto;
     }
 }
