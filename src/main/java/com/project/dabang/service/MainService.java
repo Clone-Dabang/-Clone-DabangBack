@@ -14,6 +14,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Getter
 @RequiredArgsConstructor
 @Service
@@ -44,12 +46,11 @@ public class MainService {
         int yearlyDeposit = yearly.getDeposit();
         Post post = postRepository.getById(id);
         String title = post.getTitle();
-
         for (Img s : imgRepository.findAllByPostId(id)) {
             post.addImgList(s);
         }
 
-        return new MainResponseDto(roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor, post.getImgList());
+        return new MainResponseDto(id,roomType, title, monthlyDeposit, pay, yearlyDeposit, managementFee, buildingArea, floor, post.getImgList());
 
     }
 }

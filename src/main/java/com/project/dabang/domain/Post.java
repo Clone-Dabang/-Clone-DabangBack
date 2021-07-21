@@ -36,8 +36,4 @@ public class Post extends Timestamped {
         this.contents = rawRequestDto.getDetailInfo().getContents();
     }
 
-    // 대표키값 설정
-    public Long distinctId() {
-        return id;
-    }
 }
