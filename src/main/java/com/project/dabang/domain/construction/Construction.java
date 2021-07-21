@@ -25,7 +25,7 @@ public class Construction extends Timestamped {
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
-    private int buildingArea;
+    private float buildingArea;
 
     private int floor;
 

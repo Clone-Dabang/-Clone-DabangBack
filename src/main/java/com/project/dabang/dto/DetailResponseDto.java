@@ -24,7 +24,7 @@ public class DetailResponseDto {
     private Sale monthly;
     private Sale yearly;
 
-    public int buildingArea;
+    public float buildingArea;
     public int floor;
     public String movingDate;
     public int managementFee;

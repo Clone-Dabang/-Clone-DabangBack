@@ -20,7 +20,7 @@ public class MainResponseDto {
     private int pay;
     private int yearlyDeposit;
     private int managementFee;
-    private int buildingArea;
+    private float buildingArea;
     private int floor;
     private List<String> url;
 

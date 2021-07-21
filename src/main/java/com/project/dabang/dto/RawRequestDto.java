@@ -63,7 +63,7 @@ public class RawRequestDto {
     @AllArgsConstructor
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     public static class BasicInfo {
-        public int buildingArea;
+        public float buildingArea;
         public int floor;
         public String movingDate; // chore: Localdatetim -> String
     }
