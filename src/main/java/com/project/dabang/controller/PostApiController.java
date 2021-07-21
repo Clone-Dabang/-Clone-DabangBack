@@ -1,6 +1,7 @@
 package com.project.dabang.controller;
 
-import com.project.dabang.dto.PostDetailResponseDto;
+import com.project.dabang.dto.DetailAfterDto;
+import com.project.dabang.dto.DetailBeforeDto;
 import com.project.dabang.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ public class PostApiController {
     private final PostService postService;
 
     @GetMapping("/api/posts/{id}")
-    public PostDetailResponseDto getPost(@PathVariable Long id) {
+    public DetailBeforeDto getPost(@PathVariable Long id) {
         return postService.createDetailPost(id);
     }
 }

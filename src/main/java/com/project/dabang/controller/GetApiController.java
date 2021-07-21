@@ -18,6 +18,9 @@ public class GetApiController {
 
     @GetMapping("/api/posts")
     public List<MainResponseDto> getMain() {
-        return postRepository.findAll().stream().map(s -> mainService.createMain(s.getId())).collect(Collectors.toList());
+        return postRepository.findAll()
+                .stream()
+                .map(post -> mainService.createMain(post.getId()))
+                .collect(Collectors.toList());
     }
 }

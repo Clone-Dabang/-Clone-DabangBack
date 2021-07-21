@@ -7,13 +7,13 @@ import com.project.dabang.domain.trade.Trade;
 import lombok.Getter;
 
 @Getter
-public class PostDetailResponseDto {
+public class DetailBeforeDto {
     private Post post;
     private Trade trade;
     private Construction construction;
     private Appliance appliance;
 
-    public PostDetailResponseDto(Post post, Trade trade, Construction construction, Appliance appliance) {
+    public DetailBeforeDto(Post post, Trade trade, Construction construction, Appliance appliance) {
         this.post = post;
         this.trade = trade;
         this.construction = construction;
