@@ -1,7 +1,6 @@
 package com.project.dabang.domain.construction;
 
 import com.project.dabang.dto.RawRequestDto;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,9 +16,6 @@ public class Address {
     private String latitude;
     private String longitude;
 
-//    protected Address() {
-//
-//    }
 
     public Address(RawRequestDto rawRequestDto) {
         this.road = rawRequestDto.getAddressInfo().getRoad();

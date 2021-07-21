@@ -45,5 +45,5 @@ public class Construction extends Timestamped {
         this.address = getAddress();
     }
 
-    
+
 }

@@ -8,9 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -53,7 +51,7 @@ public class Trade extends Timestamped {
     //== 생성 메서드 ==//
     public static Trade createTrade(RawRequestDto rawRequestDto, Long keyValue,
                                     TradeSale... tradeSales) {
-        Trade trade = new Trade(rawRequestDto,keyValue);
+        Trade trade = new Trade(rawRequestDto, keyValue);
         for (TradeSale tradeSale : tradeSales) {
             trade.addTradeSale(tradeSale);
         }
