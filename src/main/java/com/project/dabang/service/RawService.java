@@ -14,6 +14,7 @@ import com.project.dabang.dto.RawRequestDto;
 import com.project.dabang.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
@@ -32,20 +33,18 @@ public class RawService {
     private final YearlyRepository yearlyRepository;
     private final ImgRepository imgRepository;
 
+    @Transactional
     public void register(@RequestBody RawRequestDto rawRequestDto) {
-
-        // 포스트 생성
 
         Post post = new Post(rawRequestDto);
         postRepository.save(post);
-        // 대표 키값 생성
-        Long keyValue = post.getId();
-        List<String> images = new ArrayList<>(rawRequestDto.getImageUpload().getUrl());
-        for (String image : images) {
-            Img img = new Img(image, keyValue);
-            imgRepository.save(img);
-        }
 
+        Long keyValue = post.getId();
+
+        List<String> images = new ArrayList<>(rawRequestDto.getImageUpload().getUrl());
+        images.stream()
+                .map(image -> new Img(image, keyValue))
+                .forEach(imgRepository::save);
 
         Appliance appliance = new Appliance(rawRequestDto, keyValue);
         applianceRepository.save(appliance);
@@ -57,7 +56,7 @@ public class RawService {
         construction.setDetailInfo(detailInfo);
         constructionRepository.save(construction);
 
-        Monthly monthly = new Monthly(rawRequestDto);  // 중복선택 추후 고려해야 됨
+        Monthly monthly = new Monthly(rawRequestDto);
         monthlyRepository.save(monthly);
 
         Yearly yearly = new Yearly(rawRequestDto);
@@ -67,8 +66,6 @@ public class RawService {
         TradeSale yearlyTradeSale = TradeSale.createTradeSale(yearly);
         Trade trade = Trade.createTrade(rawRequestDto, keyValue, mothlyTradeSale, yearlyTradeSale);
         tradeRepository.save(trade);
-
-
     }
 
 }
