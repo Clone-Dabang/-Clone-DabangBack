@@ -36,7 +36,7 @@
 <br>
 
 🎬`Front-end`
--  React ([React Repository이동]([https://github.com/Clone-Dabang/-Clone-DabangFront/tree/master/dabang_clone](https://github.com/Clone-Dabang/-Clone-DabangFront/tree/master/dabang_clone)))
+-  React ([React Repository이동](https://github.com/Clone-Dabang/-Clone-DabangFront/tree/master/dabang_clone))
 <br>
 
 🛠`deploy`
