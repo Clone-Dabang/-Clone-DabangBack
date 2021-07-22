@@ -51,7 +51,7 @@
 <br>
 <img src="">
 
-👉 자세한 영상 : [다방 시연 동영상]()
+👉 자세한 영상 : [다방 시연 동영상](https://www.youtube.com/watch?v=4etfQPTL4fY)
 
 <br>
 <br>
