@@ -58,7 +58,7 @@
 ## 4) 협업 과정
 🔧**설계**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 와이어프레임 공동 설계 : [Wiki에서 확인]([https://github.com/Clone-Dabang/-Clone-DabangBack/wiki/%F0%9F%94%8D%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84-%EC%84%A4%EA%B3%84](https://github.com/Clone-Dabang/-Clone-DabangBack/wiki/%F0%9F%94%8D%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84-%EC%84%A4%EA%B3%84))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 와이어프레임 공동 설계 : [Wiki에서 확인](https://github.com/Clone-Dabang/-Clone-DabangBack/wiki/%F0%9F%94%8D%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84-%EC%84%A4%EA%B3%84)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 노션을 이용한 API 공동 설계
 
