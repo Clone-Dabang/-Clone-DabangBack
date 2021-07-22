@@ -47,9 +47,9 @@
 
 ## 3) 시연 영상
 <br>
-<img src="https://user-images.githubusercontent.com/70243735/125789215-b4ed27a2-9fc9-496a-a0cd-3c85ec01f45c.gif">
+<img src="">
 
-👉 자세한 영상 : https://youtu.be/-e2-VfU-984
+👉 자세한 영상 : [다방 시연 동영상]()
 
 <br>
 <br>
