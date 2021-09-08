@@ -61,8 +61,6 @@
 ## 4) 협업 과정
 🔧**설계**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 와이어프레임 공동 설계 : [Wiki에서 확인](https://github.com/Clone-Dabang/-Clone-DabangBack/wiki/%F0%9F%94%8D%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84-%EC%84%A4%EA%B3%84)
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 노션을 이용한 API 공동 설계
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:heavy_plus_sign:    &nbsp;  [방 등록 API ✨](https://bittersweet-anemone-e54.notion.site/API-60d1d45b5dce444ba88d12a282a1b1e7)<br>
@@ -73,8 +71,6 @@
 <br>
 
 💥**구현**
-
-![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d88f8c83-638d-4769-bbcb-894b06dbe2c2/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210722%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210722T073647Z&X-Amz-Expires=86400&X-Amz-Signature=88ceb9765067a70a1c88af6ee1427bcc80dff8dee7f9e91510b0e017ced8599f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 - 대표적인 브랜칭(Branching) 전략 중 하나인 **Git-flow** 방식을 지향
 - Main branch : 배포용 브랜치
